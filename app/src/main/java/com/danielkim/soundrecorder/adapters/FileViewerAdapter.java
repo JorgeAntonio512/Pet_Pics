@@ -1,9 +1,12 @@
 package com.danielkim.soundrecorder.adapters;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +43,8 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
     private DBHelper mDatabase;
 
     RecordingItem item;
-    Context mContext;
+    static Context mContext;
+    static int TAKE_PICTURE = 1;
     LinearLayoutManager llm;
 
     public FileViewerAdapter(Context context, LinearLayoutManager linearLayoutManager) {
@@ -83,7 +88,6 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
                             .beginTransaction();
 
                     playbackFragment.show(transaction, "dialog_playback");
-
                 } catch (Exception e) {
                     Log.e(LOG_TAG, "exception", e);
                 }
@@ -153,6 +157,15 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
             vLength = (TextView) v.findViewById(R.id.file_length_text);
             vDateAdded = (TextView) v.findViewById(R.id.file_date_added_text);
             cardView = v.findViewById(R.id.card_view);
+            Button camerabutton = (Button) v.findViewById(R.id.button);
+
+            camerabutton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    ((Activity) mContext).startActivityForResult(intent, TAKE_PICTURE);
+                }
+            });
         }
     }
 
