@@ -38,4 +38,10 @@
     <string name="record_prompt">Tap the button to start recording</string>
     <string name="record_in_progress">Recording</string>
 
+    <string name="share">Share</string>
+    <string name="save">Save</string>
+    <string name="send_to">Send to&#8230;</string>
+    <string name="button_capture">Capture Image</string>
+    <string name="button_undo">Undo Sticker</string>
+
 </resources>

@@ -24,6 +24,7 @@ import android.text.format.DateUtils;
 import com.danielkim.soundrecorder.DBHelper;
 import com.danielkim.soundrecorder.R;
 import com.danielkim.soundrecorder.RecordingItem;
+import com.danielkim.soundrecorder.activities.CameraActivity;
 import com.danielkim.soundrecorder.fragments.PlaybackFragment;
 import com.danielkim.soundrecorder.listeners.OnDatabaseChangedListener;
 
@@ -162,8 +163,8 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
             camerabutton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    ((Activity) mContext).startActivityForResult(intent, TAKE_PICTURE);
+                    Intent intent = new Intent(v.getContext(), CameraActivity.class);
+                    ((Activity) mContext).startActivity(intent);
                 }
             });
         }
