@@ -12,6 +12,8 @@ import android.media.FaceDetector;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -29,7 +31,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class EditActivity extends Activity {
+public class EditActivity extends ActionBarActivity {
 
     public static final String EXTRA_BYTES = "BMP";
 
@@ -84,7 +86,11 @@ public class EditActivity extends Activity {
         // Setup the sticker
 
         // Setup the undo button
-
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setPopupTheme(R.style.ThemeOverlay_AppCompat_Light);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
     }
 
     @Override
@@ -143,7 +149,7 @@ public class EditActivity extends Activity {
                     out.flush();
                     out.close();
 
-                    Toast.makeText(getApplicationContext(), "Saved to your folder", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Saved to PetPics in the Gallery", Toast.LENGTH_LONG).show();
                     getApplicationContext().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
                 } catch (Exception e) {
 
