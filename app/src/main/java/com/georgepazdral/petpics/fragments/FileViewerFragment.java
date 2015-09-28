@@ -1,4 +1,4 @@
-package com.danielkim.soundrecorder.fragments;
+package com.georgepazdral.petpics.fragments;
 
 import android.os.Bundle;
 import android.os.FileObserver;
@@ -11,8 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.danielkim.soundrecorder.R;
-import com.danielkim.soundrecorder.adapters.FileViewerAdapter;
+import com.georgepazdral.petpics.R;
+import com.georgepazdral.petpics.adapters.FileViewerAdapter;
 
 /**
  * Created by Daniel on 12/23/2014.

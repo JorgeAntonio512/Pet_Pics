@@ -1,4 +1,4 @@
-package com.danielkim.soundrecorder.activities;
+package com.georgepazdral.petpics.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,10 +11,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
-import com.danielkim.soundrecorder.R;
-import com.danielkim.soundrecorder.fragments.FileViewerFragment;
-import com.danielkim.soundrecorder.fragments.LicensesFragment;
-import com.danielkim.soundrecorder.fragments.RecordFragment;
+import com.georgepazdral.petpics.R;
+import com.georgepazdral.petpics.fragments.FileViewerFragment;
+import com.georgepazdral.petpics.fragments.LicensesFragment;
+import com.georgepazdral.petpics.fragments.RecordFragment;
 
 
 public class MainActivity extends ActionBarActivity{

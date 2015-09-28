@@ -1,6 +1,5 @@
-package com.danielkim.soundrecorder.activities;
+package com.georgepazdral.petpics.activities;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -22,7 +21,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.danielkim.soundrecorder.R;
+import com.georgepazdral.petpics.R;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

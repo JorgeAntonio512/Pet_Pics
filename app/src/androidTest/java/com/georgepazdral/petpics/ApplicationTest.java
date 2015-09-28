@@ -1,4 +1,4 @@
-package com.danielkim.soundrecorder;
+package com.georgepazdral.petpics;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

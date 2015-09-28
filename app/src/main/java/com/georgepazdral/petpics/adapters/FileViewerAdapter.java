@@ -1,4 +1,4 @@
-package com.danielkim.soundrecorder.adapters;
+package com.georgepazdral.petpics.adapters;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Environment;
-import android.provider.MediaStore;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,15 +20,14 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.text.format.DateUtils;
 
-import com.danielkim.soundrecorder.DBHelper;
-import com.danielkim.soundrecorder.R;
-import com.danielkim.soundrecorder.RecordingItem;
-import com.danielkim.soundrecorder.activities.CameraActivity;
-import com.danielkim.soundrecorder.fragments.PlaybackFragment;
-import com.danielkim.soundrecorder.listeners.OnDatabaseChangedListener;
+import com.georgepazdral.petpics.DBHelper;
+import com.georgepazdral.petpics.R;
+import com.georgepazdral.petpics.RecordingItem;
+import com.georgepazdral.petpics.activities.CameraActivity;
+import com.georgepazdral.petpics.fragments.PlaybackFragment;
+import com.georgepazdral.petpics.listeners.OnDatabaseChangedListener;
 
 import java.io.File;
-import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import java.util.ArrayList;
 

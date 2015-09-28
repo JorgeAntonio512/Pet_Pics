@@ -1,4 +1,4 @@
-package com.danielkim.soundrecorder;
+package com.georgepazdral.petpics;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
-import com.danielkim.soundrecorder.listeners.OnDatabaseChangedListener;
+import com.georgepazdral.petpics.listeners.OnDatabaseChangedListener;
 
 import java.util.Comparator;
 
