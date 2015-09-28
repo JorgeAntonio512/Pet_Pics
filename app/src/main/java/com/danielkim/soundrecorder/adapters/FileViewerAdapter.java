@@ -164,6 +164,8 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(v.getContext(), CameraActivity.class);
+                    String fileName = vName.getText().toString();
+                    intent.putExtra("filename", fileName);
                     ((Activity) mContext).startActivity(intent);
                 }
             });
