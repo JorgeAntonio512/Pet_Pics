@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -222,7 +223,8 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
 
         String mFilePath = "file://" + Environment.getExternalStorageDirectory().getAbsolutePath();
         mFilePath += "/SoundRecorder/" + name;
-        File f = new File(mFilePath);
+        Uri uri = Uri.parse(mFilePath);
+        File f = new File(uri.getPath());
 
         if (f.exists() && !f.isDirectory()) {
             //file name is not unique, cannot rename file.

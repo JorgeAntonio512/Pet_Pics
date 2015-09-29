@@ -7,6 +7,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Environment;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
@@ -109,8 +110,9 @@ public class RecordingService extends Service {
                     + " #" + (mDatabase.getCount() + count) + ".mp4";
             mFilePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             mFilePath += "/SoundRecorder/" + mFileName;
+            Uri uri = Uri.parse("file://" + mFilePath);
 
-            f = new File(mFilePath);
+            f = new File(uri.getPath());
         }while (f.exists() && !f.isDirectory());
     }
 
