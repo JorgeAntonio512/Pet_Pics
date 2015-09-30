@@ -90,6 +90,31 @@ public class EditActivity extends ActionBarActivity {
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
+
+        savePicture();
+    }
+
+    private void savePicture() {
+        File newDir = new File(Environment.getExternalStorageDirectory(), "PetPics");
+        newDir.mkdirs();
+        Random gen = new Random();
+        int n = 10000;
+        n = gen.nextInt(n);
+        String fotoname = "Photo-"+ n +".jpg";
+        File file = new File (newDir, fotoname);
+        if (file.exists ()) file.delete ();
+        try {
+            FileOutputStream out = new FileOutputStream(file);
+            mBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
+            out.flush();
+            out.close();
+
+            Toast.makeText(getApplicationContext(), "Saved to PetPics in the Gallery", Toast.LENGTH_LONG).show();
+            getApplicationContext().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
+        } catch (Exception e) {
+
+        }
+
     }
 
     @Override
@@ -133,28 +158,6 @@ public class EditActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.menu_item_save:
-                File newDir = new File(Environment.getExternalStorageDirectory(), "PetPics");
-                newDir.mkdirs();
-                Random gen = new Random();
-                int n = 10000;
-                n = gen.nextInt(n);
-                String fotoname = "Photo-"+ n +".jpg";
-                File file = new File (newDir, fotoname);
-                if (file.exists ()) file.delete ();
-                try {
-                    FileOutputStream out = new FileOutputStream(file);
-                    mBitmap.compress(Bitmap.CompressFormat.JPEG, 90, out);
-                    out.flush();
-                    out.close();
-
-                    Toast.makeText(getApplicationContext(), "Saved to PetPics in the Gallery", Toast.LENGTH_LONG).show();
-                    getApplicationContext().sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE, Uri.fromFile(file)));
-                } catch (Exception e) {
-
-                }
-                break;
-
             case R.id.menu_item_share:
                 ByteArrayOutputStream bytesArray = new ByteArrayOutputStream();
                 mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bytesArray);
