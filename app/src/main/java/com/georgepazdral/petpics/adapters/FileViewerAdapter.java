@@ -226,6 +226,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
         Uri uri = Uri.parse(mFilePath);
         File f = new File(uri.getPath());
 
+        //File f = new File(mFilePath);
         if (f.exists() && !f.isDirectory()) {
             //file name is not unique, cannot rename file.
             Toast.makeText(mContext,
